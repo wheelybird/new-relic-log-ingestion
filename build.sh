@@ -19,4 +19,3 @@ fi
 cd $build_dir/src
 pipenv install --python $python_version
 pipenv run pip install --no-cache-dir -r requirements.txt --target .
-zip -r ${build_dir}/${archive_name} .

@@ -3,6 +3,8 @@ locals {
   aws_partition  = data.aws_partition.current.partition
   aws_region     = data.aws_region.current.name
   build_dir      = "/tmp/build_dir"
+  source_dir     = "${local.build_dir}/src"
+  archive_name   = "${var.service_name}.zip"
   tags = merge(
     var.tags,
     { "lambda:createdBy" = "Terraform" }
