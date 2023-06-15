@@ -13,7 +13,6 @@ resource "aws_lambda_function" "ingestion_function" {
   )
 
   filename         = "${local.build_dir}/${var.service_name}.zip"
-  source_code_hash = filebase64sha256("${local.build_dir}/${var.service_name}.zip")
 
   runtime     = "python${var.python_runtime_version}"
   handler     = "function.lambda_handler"
