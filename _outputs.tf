@@ -4,6 +4,6 @@ output "function_arn" {
 }
 
 output "function_name" {
-  value       = function_name.ingestion_function.function_name
+  value       = aws_lambda_function.ingestion_function.function_name
   description = "Log ingestion lambda function name"
 }
