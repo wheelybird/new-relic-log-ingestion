@@ -10,14 +10,9 @@ resource "null_resource" "build_lambda" {
     environment = {
       build_dir      = local.build_dir
       python_version = var.python_runtime_version
+      archive_name   = local.archive_name
     }
 
   }
 
-}
-
-data "archive_file" "lambda" {
-  type = "zip"
-  source_dir = local.source_dir
-  output_path = "${local.build_dir}/${local.archive_name}"
 }

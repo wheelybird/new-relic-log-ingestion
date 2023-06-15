@@ -12,9 +12,7 @@ resource "aws_lambda_function" "ingestion_function" {
     : aws_iam_role.lambda_role.0.arn
   )
 
-  filename         = data.archive_file.lambda.output_path
-  source_code_hash = data.archive_file.lambda.output_base64sha256
-
+  filename    = "${local.build_dir}/${local.archive_name}"
   runtime     = "python${var.python_runtime_version}"
   handler     = "function.lambda_handler"
   memory_size = var.memory_size
