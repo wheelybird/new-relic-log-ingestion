@@ -12,7 +12,7 @@ resource "aws_lambda_function" "ingestion_function" {
     : aws_iam_role.lambda_role.0.arn
   )
   runtime     = "python${var.python_runtime_version}"
-  filename    = "${local.build_dir}/${local.archive_name}"
+  filename    = "${local.build_dir}/${local.service_name}"
   handler     = "function.lambda_handler"
   memory_size = var.memory_size
   timeout     = var.timeout
